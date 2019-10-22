@@ -6,11 +6,6 @@ document.addEventListener("DOMContentLoaded", function(){
   }, 3000);
       
 
-
-  // setInterval(() => {
-  //   move("right")
-  // }, 1000);
-
   captureKey = e => {
     switch(e.code){
       case "ArrowDown":

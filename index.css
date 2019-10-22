@@ -4,23 +4,34 @@ body {
   
 }
 
+.container{
+  background-image: url('https://image.architonic.com/img_pro2-4/120/2618/sand3005-b.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #board { 
+  
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  background: url('./10\ by\ 10\ orthogonal\ maze.svg');
+  background: url('./10\ by\ 10.svg');
   background-size: cover;
-  background-color: rgb(69, 67, 67);
+  
 }
 
 .tile {
-  /* border-style: solid;
-  border-width: 1px; */
+  
+
   height:5vw;
 }
 
 #bull {
   background-image: url('https://media3.giphy.com/media/a3orqcPLG7X7q/giphy.gif?cid=790b76117e0fe44861b854ec72f12f4eda1513a5a6e86cab&rid=giphy.gif');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 5vw 5vw;
+  background-position-y: center;
 }
 
 #robot {
@@ -28,10 +39,11 @@ body {
   background-repeat: no-repeat;
   background-size: 3vw 3vw;
   background-position-y: center;
-  transform: rotateY(180deg);
 }
 
 #goal{
-  background-color: rgba(43, 213, 71, 0.7);
-  border-radius: 45%;
+  background-image: url('http://pngimg.com/uploads/light/light_PNG14439.png');
+  background-size: cover;
+  transform: rotateX(180deg);
+ 
 }
