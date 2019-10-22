@@ -28,15 +28,28 @@ function createGrid() {
       cells.push(cell);
     }
   }
+  
   createWalls();
-  // console.log(cells[4])
+  makeGoalTile();
+  keyTile();
+
+} //createGrid
+
+function keyTile(){
+  const tiles = document.querySelectorAll(".tile")
+  const keyTile = tiles.find((tile)=>{
+    return parseInt(tile.dataset.x) === 1 && parseInt(tile.dataset.y) === 3;
+  })
+  keyTile.id="key"
+}
+
+function makeGoalTile(){
   const tiles = document.querySelectorAll(".tile")
   goalTile = tiles.find((tile) => {
     return parseInt(tile.dataset.x) === 5 && parseInt(tile.dataset.y) === 9
   })
   goalTile.id = "goal"
-
-} //createGrid
+}
 
 function createWalls() {
   cells[0].walls.push(...[true, false, false, true])
@@ -179,6 +192,7 @@ function bullMove() {
       if (bullPosition.x === playerMoves[playerMoves.length - 1].x &&
         bullPosition.y === playerMoves[playerMoves.length - 1].y) {
         alert("LOSEEEEEE...");
+        i--;
         clearInterval(reset);
       }
 
@@ -192,7 +206,7 @@ function bullMove() {
       bullTile.id = "bull";
       i++;
     }
-  }, 250);
+  }, 2000);
 }
 
 function renderBot(targetPosition) {
@@ -211,12 +225,23 @@ function renderBot(targetPosition) {
     }
 
     newTile.id = "robot"
+    hitKey(targetPosition);
     prevTile = newTile
     isEscape(targetPosition);
 
     return true
   }
 } //renderBot
+
+function hitKey(position){
+  if(position.x === 1 && position.y === 3){
+    const maze = document.querySelector('.container')
+    maze.setAttribute("id","boardSol");
+    setTimeout(() => {
+      maze.removeAttribute("id","boardSol");
+    },2000);
+  }
+}
 
 function move(direction) {
   let x = currentPosition.x;
@@ -248,19 +273,13 @@ function move(direction) {
     x,
     y
   })
-
-  playerMoves.push({
-    x,
-    y
-  })
-  console.log(playerMoves)
-
   if (moved) {
-    currentPosition = {
-      x,
-      y
-    }
+    currentPosition = { x, y }
   }
+  
+    playerMoves.push( { x, y } )
+  //console.log(playerMoves)
+
 
 } //move
 

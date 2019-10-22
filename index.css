@@ -4,22 +4,21 @@ body {
   
 }
 
-.container{
-  background-image: url('https://image.architonic.com/img_pro2-4/120/2618/sand3005-b.jpg');
+#boardSol{
+  background-image: url('./10_sol.svg');
   background-size: cover;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 #board { 
-  
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   background: url('./10\ by\ 10\ orthogonal\ maze.svg');
   background-size: cover;
-  background-color: rgb(255, 255, 255);
   background-position: center;
 }
+
 
 .tile {
   /* border-style: solid;
@@ -46,8 +45,17 @@ body {
 }
 
 #goal{
-  background-image: url('http://pngimg.com/uploads/light/light_PNG14439.png');
-  background-size: cover;
-  transform: rotateX(180deg);
+  background-image: url('https://www.pinclipart.com/picdir/big/9-90191_open-door-clipart-open-the-door-png-transparent.png');
+  background-size: 4vw 4vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
  
+}
+
+#key {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_MlluSnWOHSaE0MQY30qEkqtZuvd6i7kPsMeID2oM7WKHPgI');
+  background-size: 3vw 3vw;
+  background-position: center;
+  background-repeat: no-repeat;
 }
