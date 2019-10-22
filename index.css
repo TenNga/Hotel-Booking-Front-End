@@ -1,0 +1,37 @@
+body {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  
+}
+
+#board { 
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background: url('./10\ by\ 10\ orthogonal\ maze.svg');
+  background-size: cover;
+  background-color: rgb(69, 67, 67);
+}
+
+.tile {
+  /* border-style: solid;
+  border-width: 1px; */
+  height:5vw;
+}
+
+#bull {
+  background-image: url('https://media3.giphy.com/media/a3orqcPLG7X7q/giphy.gif?cid=790b76117e0fe44861b854ec72f12f4eda1513a5a6e86cab&rid=giphy.gif');
+  background-size: cover;
+}
+
+#robot {
+  background-image: url("./png-character-file-wir-ralph-character-png-324.png");
+  background-repeat: no-repeat;
+  background-size: 3vw 3vw;
+  background-position-y: center;
+  transform: rotateY(180deg);
+}
+
+#goal{
+  background-color: rgba(43, 213, 71, 0.7);
+  border-radius: 45%;
+}
