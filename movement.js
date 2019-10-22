@@ -175,7 +175,7 @@ function bullMove() {
   // for(let i = 0; i< playerMoves.length; i++){
   let i = 0;
   const reset = setInterval(() => {
-    if (playerMoves[playerMoves.length - 1] && playerMoves[i]) {
+    if (playerMoves.length>1) {
       if (bullPosition.x === playerMoves[playerMoves.length - 1].x &&
         bullPosition.y === playerMoves[playerMoves.length - 1].y) {
         alert("LOSEEEEEE...");
