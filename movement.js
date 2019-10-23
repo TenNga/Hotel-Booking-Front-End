@@ -7,6 +7,8 @@ let bullPosition = {
   y: 0
 };
 
+let gCurrentPosition;
+
 let bullPrevTile;
 let prevTile;
 let goalTile;
@@ -28,7 +30,7 @@ function createGrid() {
       cells.push(cell);
     }
   }
-  
+  movingGuard();
   createWalls();
   makeGoalTile();
   keyTile();
@@ -228,10 +230,45 @@ function renderBot(targetPosition) {
     hitKey(targetPosition);
     prevTile = newTile
     isEscape(targetPosition);
-
+    //guardSawYou(targetPosition);
     return true
   }
 } //renderBot
+
+function movingGuard(){
+  let gMoves = [cells[6],cells[7],cells[8],cells[9]]
+  let i = 0;
+  let preGtile;
+  let flag = false;
+  setInterval(() => {
+    gCurrentPosition = {x: gMoves[i].x, y: gMoves[i].y}
+    const tiles = document.querySelectorAll('.tile')
+    const gTile = tiles.find((tile)=>{
+      return parseInt(tile.dataset.x) === gCurrentPosition.x && parseInt(tile.dataset.y) === gCurrentPosition.y
+    })
+    if(preGtile)
+      preGtile.id =""
+
+      gTile.id = "movingGuard";
+    preGtile = gTile
+    // console.log( gMoves[i].x + " : " +gMoves[i].y)
+    if(i===3){ 
+      
+      i=0;
+      if(flag === false){
+        gMoves = [cells[9],cells[8],cells[7],cells[6]]
+        flag = true;
+      }
+      else if(flag === true){
+        gMoves = [cells[6],cells[7],cells[8],cells[9]]
+        flag = false;
+      }
+    }
+    else
+      i++;
+  }, 700);
+  
+}
 
 function hitKey(position){
   if(position.x === 1 && position.y === 3){
@@ -283,9 +320,14 @@ function move(direction) {
 
 } //move
 
+function guardSawYou(location){
+  if(gCurrentPosition && gCurrentPosition.x === location.x)
+    alert("LOOSSSSEEe")
+}
+
 function isEscape(location) {
   if (location.x === 5 && location.y === 9){
-    clearInterval(reset);
     alert("YEAH!!!!!!!!!!!!!! YOU WIN")
+     clearInterval(reset);
   }
 }

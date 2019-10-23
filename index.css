@@ -1,7 +1,22 @@
 body {
   display: grid;
   grid-template-columns: 2.5fr 5fr 2.5fr;
+  width: 99vw;
+  height: 99vh;  
+  background-size: cover;
+  background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
   
+}
+
+#player-info, #scores{
+  text-align: center;background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: rgb(81, 184, 90);
+}
+
+.container{
+  margin: auto 0;
 }
 
 #boardSol{
@@ -14,7 +29,7 @@ body {
 #board { 
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  background: url('./10\ by\ 10\ orthogonal\ maze.svg');
+  background: url('./finalMazeBGwithDot.svg');
   background-size: cover;
   background-position: center;
 }
@@ -25,7 +40,23 @@ body {
   border-width: 1px; */
   /* background-color: pink;
   border: 1px solid black; */
+ 
   height:5vw;
+}
+
+#movingGuard{
+  background-image: url('https://media1.giphy.com/media/g4IUruBteF2Z8zKDLS/giphy.webp?cid=790b7611e287994fbe2821b938c1903c63c93ea3c11a185f&rid=giphy.webp');
+  background-repeat: no-repeat;
+  background-size: 3vw 3vw;
+  background-position: center;
+}
+
+#guardChangD{
+  background-image: url('https://media.giphy.com/media/xT0BKN0Z8tNQCjtOSs/giphy.gif');
+  background-repeat: no-repeat;
+  background-size: 3vw 3vw;
+  background-position: center;
+  transform: rotateY(180deg)
 }
 
 #bull {
@@ -37,11 +68,10 @@ body {
 }
 
 #robot {
-  background-image: url("./png-character-file-wir-ralph-character-png-324.png");
+  background-image: url("https://media.giphy.com/media/3l11hW5IJ0Mb6/giphy.gif");
   background-repeat: no-repeat;
   background-size: 3vw 3vw;
   background-position: center;
-  transform: rotateY(180deg);
 }
 
 #goal{
@@ -54,8 +84,8 @@ body {
 }
 
 #key {
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_MlluSnWOHSaE0MQY30qEkqtZuvd6i7kPsMeID2oM7WKHPgI');
-  background-size: 3vw 3vw;
+  background-image: url('https://media0.giphy.com/media/YrAszjbHicCwRpBnM9/giphy.webp?cid=790b7611e287994fbe2821b938c1903c63c93ea3c11a185f&rid=giphy.webp');
+  background-size: 3vw 4vw;
   background-position: center;
   background-repeat: no-repeat;
 }
