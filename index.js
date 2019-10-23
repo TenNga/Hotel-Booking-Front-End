@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", function(){
       
       loginDiv.style.display = "none";
     });
-    
-
-    
   }
 
   function setUserName(userName){
@@ -28,6 +25,13 @@ document.addEventListener("DOMContentLoaded", function(){
     `)
   }
 
+  fetch(`http://localhost:3000/sessions`)
+            .then(resp=>resp.json())
+            .then(datas=>{ 
+                datas.forEach(data => {
+                    console.log(data) //console log each data if array
+                }) 
+            })
 
   
 
