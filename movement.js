@@ -196,15 +196,14 @@ function bullMove() {
   let i = 0;
   const reset = setInterval(() => {
     if (playerMoves.length>1) {
-      if (bullPosition.x === playerMoves[playerMoves.length - 1].x &&
-        bullPosition.y === playerMoves[playerMoves.length - 1].y) {
-        alert("LOSEEEEEE...");
-        i--;
-        clearInterval(reset);
-      }
-
       bullPosition.x = playerMoves[i].x;
       bullPosition.y = playerMoves[i].y;
+      if (bullPosition.x === currentPosition.x &&
+        bullPosition.y === currentPosition.y) {
+          alert("LOSEEEEEE...");
+          i--;
+          clearInterval(reset);
+        }
 
       const bullTile = tiles.find(function (tile) {
         return parseInt(tile.dataset.x) === bullPosition.x && parseInt(tile.dataset.y) === bullPosition.y
@@ -213,7 +212,7 @@ function bullMove() {
       bullTile.id = "bull";
       i++;
     }
-  }, 2000);
+  }, 1300);
 }
 
 function renderBot(targetPosition) {
@@ -247,6 +246,8 @@ function movingGuard(){
   let flag = false;
   setInterval(() => {
     gCurrentPosition = {x: gMoves[i].x, y: gMoves[i].y}
+    if(gCurrentPosition.x === currentPosition.x && gCurrentPosition.y === currentPosition.y)
+      alert("You Loooseeee!")
     const tiles = document.querySelectorAll('.tile')
     const gTile = tiles.find((tile)=>{
       return parseInt(tile.dataset.x) === gCurrentPosition.x && parseInt(tile.dataset.y) === gCurrentPosition.y
@@ -310,7 +311,7 @@ function move(direction) {
         y++
       break;
   }
-
+playerMoves.push( { x, y } )
   const moved = renderBot({
     x,
     y
@@ -319,7 +320,7 @@ function move(direction) {
     currentPosition = { x, y }
   }
   
-    playerMoves.push( { x, y } )
+    
   //console.log(playerMoves)
 
 

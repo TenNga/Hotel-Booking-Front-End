@@ -1,23 +1,33 @@
 document.addEventListener("DOMContentLoaded", function(){
 
   const loginDiv = document.querySelector('.login');
+  const playerInfo = document.querySelector('.player-details')
   const form = document.querySelector('#userNameForm');
   const userInput = document.querySelector('#userName');
-  let userName;
   createGrid()
   renderBot(currentPosition)
   login();
-  setTimeout(() => {
-    bullMove();
-  }, 3000);
+  
       
   function login() {
     form.addEventListener('submit',(event)=> {
       event.preventDefault();
-      userName = userInput.value;
+      setUserName(userInput.value);
+      
       loginDiv.style.display = "none";
-    })
+    });
+    
+
+    
   }
+
+  function setUserName(userName){
+    playerInfo.insertAdjacentHTML('beforeend',
+    `
+    <h3>Player: ${userName}</h3>
+    `)
+  }
+
 
   
 
@@ -45,7 +55,9 @@ document.addEventListener("DOMContentLoaded", function(){
         break;
     }
   }
-
+setTimeout(() => {
+    bullMove();
+  }, 3000);
 
   document.addEventListener('keydown',captureKey);
 })
