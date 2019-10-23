@@ -34,8 +34,13 @@ function createGrid() {
   createWalls();
   makeGoalTile();
   keyTile();
+  // [t,r,b,l] = cells[10].walls //[true,fals,treu,false]
+  // let walls = {t,r,b,l}
+  // console.log(walls.l);
+  // // console.log(getTwoCellWalls())
 
 } //createGrid
+
 
 function keyTile(){
   const tiles = document.querySelectorAll(".tile")

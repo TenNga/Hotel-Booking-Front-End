@@ -17,10 +17,14 @@ body {
 
 .container{
   margin: auto 0;
+  background-image: url('./src/finalMazeBGwithDot.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #boardSol{
-  background-image: url('./10_sol.svg');
+  background-image: url('./src/pathSol.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,7 +33,7 @@ body {
 #board { 
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  background: url('./finalMazeBGwithDot.svg');
+  background: url('./src/mazeBG.svg');
   background-size: cover;
   background-position: center;
 }
@@ -72,6 +76,11 @@ body {
   background-repeat: no-repeat;
   background-size: 3vw 3vw;
   background-position: center;
+}
+
+#robot img{
+  width: fit-content;
+  height: fit-content;
 }
 
 #goal{
