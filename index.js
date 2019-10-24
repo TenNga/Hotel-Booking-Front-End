@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   const loginDiv = document.querySelector('.login');
   const playerInfo = document.querySelector('.player-details')
-  const playerRecord = document
+  const playerRecord = document.querySelector('.record-times')
   const topScoreContainer = document.querySelector('#scores')
   const form = document.querySelector('#userNameForm');
   const userInput = document.querySelector('#userName');
@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function(){
       event.preventDefault();
       createUser(userInput.value);
       loginDiv.style.display = "none";
-      isLogin = true;
     });
+    isLogin = true;
   }
 
   //save userId and insert username in HTML
@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
   
 
   captureKey = e => {
+    console.log('hehehehehhee')
     switch(e.code){
       case "ArrowDown":
         // addToMove(e.code);
@@ -103,6 +104,7 @@ setTimeout(() => {
     bullMove();
   }, 3000);
 
-  if(isLogin)
+  if(isLogin){ //allow only after login
     document.addEventListener('keydown',captureKey);
+  }
 })

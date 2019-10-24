@@ -53,11 +53,11 @@ const object = () => {
     }
   }
 
-  function move(){
+  function moveCanvas(){
       
     movements()
       
-      requestAnimationFrame(move)
+      requestAnimationFrame(moveCanvas)
       
       c.clearRect(0, 0, innerWidth, innerHeight)
 
@@ -67,4 +67,4 @@ const object = () => {
 }
 
 
-move()
+moveCanvas()
