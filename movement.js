@@ -7,7 +7,8 @@ let bullPosition = {
   y: 0
 };
 
-let score = 0;
+let scorekey = false;
+let score = 1000;
 let reset;
 let scoreLoop;
 let gCurrentPosition;
@@ -39,15 +40,17 @@ function createGrid() {
 } //createGrid
 
 function startScore(){
-  const scoreCounter = document.querySelector('#scoreCount')
-  scoreLoop = setInterval(() => {
-    if(currentPosition.x !== 4 && currentPosition.y !== 0)
-        score++;
-    scoreCounter.innerText = score;
-  }, 1000);
-  
-}
+  if(!scorekey){
+    scorekey = true;
+    const scoreCounter = document.querySelector('#scoreCount');
+    console.log('hahahhappp sd ds');
 
+    scoreLoop = setInterval(() => {
+          score--;
+      scoreCounter.innerText = score;
+    }, 400);
+  }
+}
 
 function keyTile(){
   const tiles = document.querySelectorAll(".tile")
@@ -199,7 +202,6 @@ class Cell {
 function bullMove() {
   const tiles = document.querySelectorAll(".tile")
 
-  // for(let i = 0; i< playerMoves.length; i++){
   let i = 0;
   reset = setInterval(() => {
     if (playerMoves.length>1) {
@@ -234,11 +236,11 @@ function processPlayerMove(targetPosition) {
     if (prevTile) {
       prevTile.id = ""
     }
-    newTile.id = "robot"
+    newTile.id = `robot${avatar}`;
     hitKey(targetPosition);
-    prevTile = newTile
+    prevTile = newTile;
+    prevTile.setAttribu
     isEscape(targetPosition);
-    //guardSawYou(targetPosition);
     return true
   }
 } //processPlayerMove
@@ -318,10 +320,11 @@ playerMoves.push( { x, y } )
     x,
     y
   })
+  startScore();
   if (moved) {
     currentPosition = { x, y }
   }
-  startScore();
+  
 } //move
 
 function guardSawYou(location){

@@ -40,14 +40,14 @@ body {
 .form{
   background-color: rgb(240, 240, 240, .7);
   border: 3px solid rgb(145, 100, 2);
-  width: 50%;
-  height: 20%;
+  width: 60%;
+  height: 30%;
   border-radius: 10px;
   position: absolute;
   text-align: center;
   box-shadow: 5px 5px rgb(162, 131, 6);
-  top: 30%;
-  left: 25%;
+  top: 25%;
+  left: 20%;
   z-index: 3;
 }
 /* .loose{
@@ -69,16 +69,25 @@ body {
   letter-spacing: 5px;
   color: rgb(145, 100, 2);
   text-shadow: 2px 3px rgb(162, 131, 6, .2);
- 
+}
+
+.form h2{
+  font-family: 'Fascinate Inline', cursive;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: rgb(145, 100, 2);
+  text-shadow: 2px 3px rgb(162, 131, 6, .2);
 }
 
 .form input{
   width: 70%;
   height: 30px;
-  background: rgb(205, 205, 142, 0.3);
+  background: rgba(112, 174, 240, 0.92);
   border-radius: 7px;
   font-size: 21px;
   box-shadow: none;
+  color: rgb(238, 238, 238);
+  text-transform: uppercase;
 }
 
 .form:hover{
@@ -179,12 +188,45 @@ h3 {
   
 }
 
-#robot {
+.login img{
+  width: 50px;
+  height: 50px;
+  margin: 1px;
+  border: 3px solid rgb(33, 109, 222);
+  border-radius: 5px;
+}
+
+#robot1 {
+  background-image: url(https://i.gifer.com/origin/a9/a9cf539bb9b100e936061fd893027ce7_w200.webp);
+  background-repeat: no-repeat;
+  background-size: 4vw 4vw;
+  background-position: center;
+}
+#robot2 {
   background-image: url(https://media2.giphy.com/media/KZr3SwknROFNE1Qr9K/giphy.webp?cid=790b7611b0549f3c9006f52bb2329b340b8689d75ef9318b&rid=giphy.webp);
   background-repeat: no-repeat;
   background-size: 4vw 4vw;
   background-position: center;
 }
+#robot3 {
+  background-image: url(https://i.gifer.com/origin/64/64abe69f78d6620fb9a2ddb096d542d3_w200.webp);
+  background-repeat: no-repeat;
+  background-size: 4vw 4vw;
+  background-position: center;
+}
+#robot4 {
+  background-image: url(https://i.gifer.com/origin/09/09fd35b35da1d556f7716228a16f5b43_w200.webp);
+  background-repeat: no-repeat;
+  background-size: 4vw 4vw;
+  background-position: center;
+}
+#robot5 {
+  background-image: url(https://i.gifer.com/origin/f5/f5baef4b6b6677020ab8d091ef78a3bc_w200.webp);
+  background-repeat: no-repeat;
+  background-size: 4vw 4vw;
+  background-position: center;
+}
+
 
 #robot img{
   width: fit-content;

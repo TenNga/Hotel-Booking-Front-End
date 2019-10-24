@@ -3,9 +3,11 @@ const sessionURL = `${baseURL}sessions`
 const playerURL = `${baseURL}players`
 let userId;
 let isLogin = false;
+let avatar;
 
 document.addEventListener("DOMContentLoaded", function(){
 
+  const avatarSelect = document.querySelector('.avatar')
   const loginDiv = document.querySelector('.login');
   const playerInfo = document.querySelector('.player-details')
   const playerRecord = document.querySelector('.record-times')
@@ -13,9 +15,10 @@ document.addEventListener("DOMContentLoaded", function(){
   const form = document.querySelector('#userNameForm');
   const userInput = document.querySelector('#userName');
 
+  login();
   createGrid()
   processPlayerMove(currentPosition)
-  login();
+  avatarChoosen();
   getAllScore();
   
 
@@ -36,17 +39,28 @@ document.addEventListener("DOMContentLoaded", function(){
     })
    
   }
+
+  function avatarChoosen(){
+    avatarSelect.addEventListener('click',(e)=>{
+      // console.log(e.target.className)
+      if(e.target.className === "avatarIcon"){
+        avatar = e.target.id 
+        event.target.style.backgroundColor = "rgb(145, 100, 2)";
+      }
+    })
+  }
       
   //Pop-up login window return Username
   function login() {
     form.addEventListener('submit',(event)=> {
+      
       event.preventDefault();
       
       if (checkPlayer(userInput.value))
         setUserName(userInput.value);
       else
         createUser(userInput.value);
-
+      
       loginDiv.style.display = "none";
     });
     isLogin = true;
@@ -100,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function(){
       
   }
 
-
 function getAllScore(){
   fetch(sessionURL)
             .then(resp=>resp.json())
@@ -121,8 +134,6 @@ function getAllScore(){
     `)
   }
 
-  
-
   captureKey = e => {
     console.log('hehehehehhee')
     switch(e.code){
@@ -140,10 +151,6 @@ function getAllScore(){
         break;
       case "ArrowLeft":
         // addToMove(e.code);
-        move("left");
-        break;
-      case "Backspace":
-        // deleteByKey();
         move("left");
         break;
     }
