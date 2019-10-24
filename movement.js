@@ -194,7 +194,8 @@ function bullMove() {
       bullPosition.y = playerMoves[i].y;
       if (bullPosition.x === currentPosition.x &&
         bullPosition.y === currentPosition.y) {
-          alert("LOSEEEEEE...");
+          loose()
+          // alert("LOSEEEEEE...");
           i--;
           clearInterval(reset);
         }
@@ -206,6 +207,19 @@ function bullMove() {
       i++;
     }
   }, 1300);
+}
+
+function loose(){
+  const loginDiv = document.querySelector('.login');
+  const formDiv = document.querySelector('.form');
+  // formDiv.classList.toggle("form:hover")
+console.dir(formDiv)
+  formDiv.innerHTML = `
+      <h1>You Loose</h1>
+      `
+
+  loginDiv.style.display = "block"
+  formDiv.style.display = "block"
 }
 
 function processPlayerMove(targetPosition) {
@@ -238,7 +252,7 @@ function movingGuard(){
   setInterval(() => {
     gCurrentPosition = {x: gMoves[i].x, y: gMoves[i].y}
     if(gCurrentPosition.x === currentPosition.x && gCurrentPosition.y === currentPosition.y)
-      alert("You Loooseeee!")
+      loose()
     const tiles = document.querySelectorAll('.tile')
     const gTile = tiles.find((tile)=>{
       return parseInt(tile.dataset.x) === gCurrentPosition.x && parseInt(tile.dataset.y) === gCurrentPosition.y
@@ -272,7 +286,7 @@ function hitKey(position){
     maze.setAttribute("id","boardSol");
     setTimeout(() => {
       maze.removeAttribute("id","boardSol");
-    },2000);
+    },5000);
   }
 }
 
@@ -310,14 +324,26 @@ playerMoves.push( { x, y } )
   }
 } //move
 
-function guardSawYou(location){
-  if(gCurrentPosition && gCurrentPosition.x === location.x)
-    alert("LOOSSSSEEe")
-}
+
 
 function isEscape(location) {
   if (location.x === 5 && location.y === 9){
-    alert("YEAH!!!!!!!!!!!!!! YOU WIN")
+    win()
      clearInterval(reset);
   }
 }
+
+function win(){
+  const loginDiv = document.querySelector('.login');
+  const formDiv = document.querySelector('.form');
+  // formDiv.classList.toggle("form:hover")
+console.dir(formDiv)
+  formDiv.innerHTML = `
+      <h1>You Win</h1>
+      <button onclick="reset()" >reset</button>
+      `
+
+  loginDiv.style.display = "block"
+  formDiv.style.display = "block"
+}
+
