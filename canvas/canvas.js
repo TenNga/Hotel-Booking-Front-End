@@ -1,0 +1,72 @@
+const canvas = document.querySelector('canvas')
+let c = canvas.getContext('2d')
+
+canvas.width = window.innerWidth
+innerWidth = canvas.width 
+innerHeight = canvas.height
+
+imageX = 200
+imageY = 30
+
+
+let myImg = new Image();
+myImg.onload = function() {
+   c.drawImage(myImg, imageX, imageY);
+};
+myImg.src = "https://www.fontspace.com/api/renderfont4/5OjG/eyJyIjoiZ2RpIiwiaCI6MTI0LCJ3IjoxMDAwLCJmcyI6MTI0LCJmZ2MiOiIjMzczMmUyIiwiYmdjIjoiIzAwMDAwMCJ9/TEFCWVJJTlRI/ideomaliner.png"
+
+
+
+function getRndColor() {
+    let r = 255*Math.random()|0,
+        g = 255*Math.random()|0,
+        b = 255
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+
+const object = (x, y) => {
+    c.beginPath();
+    c.arc(x, y, 5, 0, Math.PI * 2, false);
+    c.closePath()
+    c.fillStyle = getRndColor();
+    c.fill();
+    c.strokeStyle = getRndColor();
+    c.lineWidth = Math.floor(Math.random() * 10) + .1;
+    c.stroke();
+  }
+  
+  x = 40
+  y = 10
+
+  const movements = () => {
+      if (x < 200 ){
+        x += 3
+        y += 0
+
+    } else if (x > 200  && y <= 30) {
+        // x = x * 1
+        y += 1
+    } else if(x <= 200 && y >= 40){
+        x *= 1 
+        y *= 1
+    } else {
+        x += 0
+        y += 0
+    }
+  }
+
+  function moveCanvas(){
+      
+    movements()
+      
+      requestAnimationFrame(moveCanvas)
+      
+      c.clearRect(0, 0, innerWidth, innerHeight)
+
+      c.drawImage(myImg, imageX, imageY);
+      object(x, y)
+
+}
+
+
+moveCanvas()
