@@ -7,6 +7,9 @@ let bullPosition = {
   y: 0
 };
 
+let score = 0;
+let reset;
+let scoreLoop;
 let gCurrentPosition;
 let bullPrevTile;
 let prevTile;
@@ -34,6 +37,16 @@ function createGrid() {
   keyTile();
 
 } //createGrid
+
+function startScore(){
+  const scoreCounter = document.querySelector('#scoreCount')
+  scoreLoop = setInterval(() => {
+    if(currentPosition.x !== 4 && currentPosition.y !== 0)
+        score++;
+    scoreCounter.innerText = score;
+  }, 1000);
+  
+}
 
 
 function keyTile(){
@@ -188,7 +201,7 @@ function bullMove() {
 
   // for(let i = 0; i< playerMoves.length; i++){
   let i = 0;
-  const reset = setInterval(() => {
+  reset = setInterval(() => {
     if (playerMoves.length>1) {
       bullPosition.x = playerMoves[i].x;
       bullPosition.y = playerMoves[i].y;
@@ -308,6 +321,7 @@ playerMoves.push( { x, y } )
   if (moved) {
     currentPosition = { x, y }
   }
+  startScore();
 } //move
 
 function guardSawYou(location){
@@ -317,6 +331,18 @@ function guardSawYou(location){
 
 function isEscape(location) {
   if (location.x === 5 && location.y === 9){
+    clearInterval(scoreLoop);
+    fetch(`${sessionURL}`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accepts": "application/json"
+      },
+      body: JSON.stringify({
+              score: score, 
+              player_id: userId
+          })
+  })
     alert("YEAH!!!!!!!!!!!!!! YOU WIN")
      clearInterval(reset);
   }

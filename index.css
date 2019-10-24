@@ -17,12 +17,8 @@ body {
   display: grid;
   grid-template-columns: 2.5fr 5fr 2.5fr;
   width: 99vw;
-  height: 99vh;  
+  height: fit-content;  
   
-}
-
-.main-container{
-  /* display: flex; */
 }
 
 .login{
@@ -93,7 +89,7 @@ body {
 #player-info, #scores{
   width: 80%;
   height: 80%;
-  margin: auto;
+  margin: 5px auto;
   text-align: center;
   text-shadow: 1px 1px 2px rgb(182, 182, 182);
   background-color:rgb(235, 229, 193,0.4);
@@ -119,28 +115,30 @@ h3 {
 }
 
 .container{
-  grid-column: 2;
+  height: fit-content;
   position: relative;
-  margin: auto 0;
   background-image: url('./img/finalMazeBGwithDot.svg');
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: top;
   background-repeat: no-repeat;
+}
+
+#scoreCount{
+  font-size: 50px;
 }
 
 #boardSol{
   background-image: url('./img/pathSol.svg');
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: top;
   background-repeat: no-repeat;
 }
 
 #board { 
   display: grid;
+  margin: auto 0;
   grid-template-columns: repeat(10, 1fr);
-  background: url('./img/mazeBG.svg');
-  background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
 }
 
 

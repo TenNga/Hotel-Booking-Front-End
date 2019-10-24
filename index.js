@@ -16,14 +16,37 @@ document.addEventListener("DOMContentLoaded", function(){
   createGrid()
   processPlayerMove(currentPosition)
   login();
-
+  getAllScore();
   
+
+  function getPlayerinfo(){
+    fetch(`${playerURL}/${userId}`)
+            .then(resp=>resp.json())
+            .then(data=>{ 
+              console.log(data)
+                displayPlayerRecords(data)
+            })
+  }
+
+  function displayPlayerRecords(player){
+    player.session.forEach((s)=>{
+      playerRecord.insertAdjacentHTML('beforeend',`
+   <h3>${s.score}</h3>
+   `)
+    })
+   
+  }
       
   //Pop-up login window return Username
   function login() {
     form.addEventListener('submit',(event)=> {
       event.preventDefault();
-      createUser(userInput.value);
+      
+      if (checkPlayer(userInput.value))
+        setUserName(userInput.value);
+      else
+        createUser(userInput.value);
+
       loginDiv.style.display = "none";
     });
     isLogin = true;
@@ -31,11 +54,31 @@ document.addEventListener("DOMContentLoaded", function(){
 
   //save userId and insert username in HTML
   function setUserName(user){
-    userId = user.id;
+    // console.log(user)
     playerInfo.insertAdjacentHTML('beforeend',
     `
-    <h3>Player: ${user.name}</h3>
+    <h3>Player: ${user}</h3>
     `)
+  }
+
+  function checkPlayer(name){
+    fetch(playerURL)
+            .then(resp=>resp.json())
+            .then(players=> {
+              console.log(players)
+      const result =  players.find((player)=>{
+                    return player.name === name;
+                    })
+                    
+    if(result){ 
+      userId = result.id;
+        getPlayerinfo();
+        return true;
+    }
+    else
+      return false;
+
+    }) 
   }
 
   //create user in DB and paste the return new user to setUserName()
@@ -50,17 +93,22 @@ document.addEventListener("DOMContentLoaded", function(){
               name: name
           })
   }).then(resp=>resp.json()) //only if you want to get the data back
-      .then(data => setUserName(data))
+      .then(data => {
+        userId = data.id;
+        setUserName(data.name)
+      })
+      
   }
 
 
-
+function getAllScore(){
   fetch(sessionURL)
             .then(resp=>resp.json())
             .then(datas=>{ 
-                topScore(datas)
+                topScore(datas);
             })
-
+}
+  
   function topScore(scores){
     const sortedScores = scores.sort((a,b)=> b.score - a.score);
     //sortedScores.length = 2;
