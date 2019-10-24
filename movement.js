@@ -1,5 +1,3 @@
-const looseDiv = document.querySelector('.loose')
-
 let currentPosition = {
   x: 4,
   y: 0
@@ -10,7 +8,6 @@ let bullPosition = {
 };
 
 let gCurrentPosition;
-
 let bullPrevTile;
 let prevTile;
 let goalTile;
@@ -18,7 +15,6 @@ let goalTile;
 const cells = [];
 let playerMoves = [];
 NodeList.prototype.find = Array.prototype.find
-
 
 function createGrid() {
   const board = document.querySelector("#board")
@@ -36,10 +32,6 @@ function createGrid() {
   createWalls();
   makeGoalTile();
   keyTile();
-  // [t,r,b,l] = cells[10].walls //[true,fals,treu,false]
-  // let walls = {t,r,b,l}
-  // console.log(walls.l);
-  // // console.log(getTwoCellWalls())
 
 } //createGrid
 
@@ -190,11 +182,6 @@ class Cell {
     this.walls = []; //top,right,bottom,left
   }
 }
-// function loose(){
-
-//   console.log(looseDiv)
-//   looseDiv.outerHTML = "<h1>You Loose</h1>"
-// }
 
 function bullMove() {
   const tiles = document.querySelectorAll(".tile")
@@ -207,12 +194,10 @@ function bullMove() {
       bullPosition.y = playerMoves[i].y;
       if (bullPosition.x === currentPosition.x &&
         bullPosition.y === currentPosition.y) {
-          // loose()
           alert("LOSEEEEEE...");
           i--;
           clearInterval(reset);
         }
-
       const bullTile = tiles.find(function (tile) {
         return parseInt(tile.dataset.x) === bullPosition.x && parseInt(tile.dataset.y) === bullPosition.y
       })
@@ -223,13 +208,12 @@ function bullMove() {
   }, 1300);
 }
 
-function renderBot(targetPosition) {
+function processPlayerMove(targetPosition) {
   const tiles = document.querySelectorAll(".tile")
 
   const newTile = tiles.find(function (tile) {
     return parseInt(tile.dataset.x) === targetPosition.x && parseInt(tile.dataset.y) === targetPosition.y
   })
-
   if (!newTile) {
     alert("Clang! Hit a wall")
     return false
@@ -237,7 +221,6 @@ function renderBot(targetPosition) {
     if (prevTile) {
       prevTile.id = ""
     }
-
     newTile.id = "robot"
     hitKey(targetPosition);
     prevTile = newTile
@@ -245,7 +228,7 @@ function renderBot(targetPosition) {
     //guardSawYou(targetPosition);
     return true
   }
-} //renderBot
+} //processPlayerMove
 
 function movingGuard(){
   let gMoves = [cells[6],cells[7],cells[8],cells[9]]
@@ -263,11 +246,10 @@ function movingGuard(){
     if(preGtile)
       preGtile.id =""
 
-      gTile.id = "movingGuard";
+    gTile.id = "movingGuard";
     preGtile = gTile
-    // console.log( gMoves[i].x + " : " +gMoves[i].y)
-    if(i===3){ 
-      
+
+    if(i===3){
       i=0;
       if(flag === false){
         gMoves = [cells[9],cells[8],cells[7],cells[6]]
@@ -300,7 +282,6 @@ function move(direction) {
   const currentCell = cells.find(function (cell) {
     return cell.x === x && cell.y === y;
   })
-  // console.log(currentCell)
   switch (direction) {
     case "left":
       if (currentCell.walls[3] === false)
@@ -320,18 +301,13 @@ function move(direction) {
       break;
   }
 playerMoves.push( { x, y } )
-  const moved = renderBot({
+  const moved = processPlayerMove({
     x,
     y
   })
   if (moved) {
     currentPosition = { x, y }
   }
-  
-    
-  //console.log(playerMoves)
-
-
 } //move
 
 function guardSawYou(location){

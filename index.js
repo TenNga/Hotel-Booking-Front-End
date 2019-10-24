@@ -1,7 +1,7 @@
 const baseURL = "http://localhost:3000/"
 const sessionURL = `${baseURL}sessions`
 const playerURL = `${baseURL}players`
-const userId;
+let userId;
 let isLogin = false;
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function(){
   const userInput = document.querySelector('#userName');
 
   createGrid()
-  renderBot(currentPosition)
+  processPlayerMove(currentPosition)
   login();
 
   
       
-  //---------- Pop-up login window return Username ---------------------
+  //Pop-up login window return Username
   function login() {
     form.addEventListener('submit',(event)=> {
       event.preventDefault();
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   }
 
+  //save userId and insert username in HTML
   function setUserName(user){
     userId = user.id;
     playerInfo.insertAdjacentHTML('beforeend',
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function(){
     `)
   }
 
+  //create user in DB and paste the return new user to setUserName()
   function createUser(name){
     fetch(playerURL, {
       method: "POST",
@@ -100,6 +102,7 @@ document.addEventListener("DOMContentLoaded", function(){
 setTimeout(() => {
     bullMove();
   }, 3000);
+
   if(isLogin)
     document.addEventListener('keydown',captureKey);
 })
