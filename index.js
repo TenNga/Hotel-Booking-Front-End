@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
   createGrid()
   renderBot(currentPosition)
   login();
+
   
       
   //---------- Pop-up login window return Username ---------------------
