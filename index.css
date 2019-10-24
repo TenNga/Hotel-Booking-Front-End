@@ -1,11 +1,23 @@
 body {
   display: grid;
+  grid-template-rows: 1fr 9fr;
   grid-template-columns: 2.5fr 5fr 2.5fr;
   width: 99vw;
   height: 99vh;  
   background-size: cover;
   background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
   
+}
+
+canvas {
+  grid-row: 1;
+  background-color: black;
+}
+
+#game {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
 }
 
 
@@ -32,7 +44,21 @@ body {
   box-shadow: 5px 5px rgb(162, 131, 6);
   top: 30%;
   left: 25%;
+  z-index: 3;
 }
+/* .loose{
+  background-color: rgb(240, 240, 240, .7);
+  border: 3px solid rgb(145, 100, 2);
+  width: 50%;
+  height: 20%;
+  border-radius: 10px;
+  position: absolute;
+  text-align: center;
+  box-shadow: 5px 5px rgb(162, 131, 6);
+  top: 30%;
+  left: 25%;
+  z-index: 4;
+} */
 
 .form h1{
   font-family: 'Fascinate Inline', cursive;
@@ -55,6 +81,10 @@ body {
   transition: 0.7s;
   transform: scale(1.5);
 }
+/* .loose:hover{
+  transition: 0.7s;
+  transform: scale(1.5);
+} */
 
 #player-info, #scores{
   width: 80%;
@@ -85,6 +115,7 @@ h3 {
 }
 
 .container{
+  grid-column: 2;
   position: relative;
   margin: auto 0;
   background-image: url('./img/finalMazeBGwithDot.svg');

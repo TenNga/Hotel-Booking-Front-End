@@ -1,3 +1,5 @@
+const looseDiv = document.querySelector('.loose')
+
 let currentPosition = {
   x: 4,
   y: 0
@@ -188,6 +190,11 @@ class Cell {
     this.walls = []; //top,right,bottom,left
   }
 }
+// function loose(){
+
+//   console.log(looseDiv)
+//   looseDiv.outerHTML = "<h1>You Loose</h1>"
+// }
 
 function bullMove() {
   const tiles = document.querySelectorAll(".tile")
@@ -200,6 +207,7 @@ function bullMove() {
       bullPosition.y = playerMoves[i].y;
       if (bullPosition.x === currentPosition.x &&
         bullPosition.y === currentPosition.y) {
+          // loose()
           alert("LOSEEEEEE...");
           i--;
           clearInterval(reset);

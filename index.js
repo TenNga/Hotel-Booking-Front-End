@@ -2,11 +2,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
   const loginDiv = document.querySelector('.login');
   const playerInfo = document.querySelector('.player-details')
+  
   const form = document.querySelector('#userNameForm');
   const userInput = document.querySelector('#userName');
   createGrid()
   renderBot(currentPosition)
   login();
+
   
       
   function login() {
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
       loginDiv.style.display = "none";
     });
   }
+
 
   function setUserName(userName){
     playerInfo.insertAdjacentHTML('beforeend',
