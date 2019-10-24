@@ -41,12 +41,12 @@ const object = () => {
         x += 3
         y += 0
 
-    } else if (x > 200 && y >= 10) {
+    } else if (x > 200  && y <= 30) {
         x = x * 1
-        y += 10
-    } else if(x >= 200 && y >= 40){
-        x += 5
-        y += 10
+        y += 1
+    } else if(x <= 200 && y >= 40){
+        x *= 1 
+        y *= 1
     } else {
         x += 0
         y += 0
