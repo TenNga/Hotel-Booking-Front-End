@@ -90,79 +90,79 @@ const object = (x, y) => {
       if (x < 179 ){
         x += 5
         // turns[0] = true
-        console.log( x,y, "first")
+        // console.log( x,y, "first")
     } 
      if (x == 180 ) {
-         console.log( x,y, "second")
+        //  console.log( x,y, "second")
         x += 0
         y -= 5 
         // turns[1] = true
     } 
     if (y == -10 ){
-         console.log(x,y, "h")
+        //  console.log(x,y, "h")
          x += 5
-         console.log(x,y)
+        //  console.log(x,y)
          y += 0
      } 
     if (x == 350 ){
-         console.log(x,y, "4")
+        //  console.log(x,y, "4")
         //  x += 5
-         console.log(x,y)
+        //  console.log(x,y)
          y += 5
      } 
     if (x >= 350 && x != 550 && x < 551 && y == 60){
-         console.log(x,y, "5")
+        //  console.log(x,y, "5")
          x += 5
-         console.log(x,y)
+        //  console.log(x,y)
         //  y += 5
      } 
     if (x >= 550 && x != 571 && x < 572 ){
-         console.log(x,y, "6")
+        //  console.log(x,y, "6")
          x += 3
-         console.log(x,y)
+        //  console.log(x,y)
          y += 6
      } 
     if (x >= 571 && x != 641 && x < 642){
-         console.log(x,y, "7")
+        //  console.log(x,y, "7")
          x += 5
-         console.log(x,y)
+        //  console.log(x,y)
          y += 0
      } 
     if (x == 641 && y >= 102 && y!= 182 && y < 183){
-         console.log(x,y, "8")
+        //  console.log(x,y, "8")
          x += 0
-         console.log(x,y)
+        //  console.log(x,y)
          y += 5
      } 
     if (x >= 641 && x != 892 && x < 893 && y == 182){
         x += 5
-        console.log(x,y)
+        // console.log(x,y)
         y += 0
-        console.log(x,y, "9")
+        // console.log(x,y, "9")
      } 
      if (x == 891 && y <= 183 && y!= 2 && y > 1){
          x += 0
-         console.log(x,y)
+        //  console.log(x,y)
          y -= 5
-         console.log(x,y, "10")
+        //  console.log(x,y, "10")
     } 
     if (x >= 891 && x != 1052 && x < 1053 && y == 2){
         x += 5
-        console.log(x,y)
+        // console.log(x,y)
         y += 0
-        console.log(x,y, "11")
+        // console.log(x,y, "11")
      } 
      if (x == 1056 && y >= 2 && y!= 182 && y < 181){
         x += 0
-        console.log(x,y)
+        // console.log(x,y)
         y += 5
-        console.log(x,y, "12")
+        // console.log(x,y, "12")
    } 
    if (x >= 1056 && x != 1652 && x < 1653 && y == 182){
     x += 5
-    console.log(x,y)
+    // console.log(x,y)
     y += 0
-    console.log(x,y, "13")
+    // console.log(x,y, "13")
  } 
      
 

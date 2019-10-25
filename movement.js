@@ -7,6 +7,10 @@ let bullPosition = {
   y: 0
 };
 
+let scorekey = false;
+let score = 1000;
+let reset;
+let scoreLoop;
 let gCurrentPosition;
 let bullPrevTile;
 let prevTile;
@@ -35,6 +39,18 @@ function createGrid() {
 
 } //createGrid
 
+function startScore(){
+  if(!scorekey){
+    scorekey = true;
+    const scoreCounter = document.querySelector('#scoreCount');
+    console.log('hahahhappp sd ds');
+
+    scoreLoop = setInterval(() => {
+          score--;
+      scoreCounter.innerText = score;
+    }, 400);
+  }
+}
 
 function keyTile(){
   const tiles = document.querySelectorAll(".tile")
@@ -186,9 +202,8 @@ class Cell {
 function bullMove() {
   const tiles = document.querySelectorAll(".tile")
 
-  // for(let i = 0; i< playerMoves.length; i++){
   let i = 0;
-  const reset = setInterval(() => {
+  reset = setInterval(() => {
     if (playerMoves.length>1) {
       bullPosition.x = playerMoves[i].x;
       bullPosition.y = playerMoves[i].y;
@@ -206,7 +221,7 @@ function bullMove() {
       bullTile.id = "bull";
       i++;
     }
-  }, 1300);
+  }, 300);
 }
 
 function loose(){
@@ -235,11 +250,11 @@ function processPlayerMove(targetPosition) {
     if (prevTile) {
       prevTile.id = ""
     }
-    newTile.id = "robot"
+    newTile.id = `robot${avatar}`;
     hitKey(targetPosition);
-    prevTile = newTile
+    prevTile = newTile;
+    prevTile.setAttribu
     isEscape(targetPosition);
-    //guardSawYou(targetPosition);
     return true
   }
 } //processPlayerMove
@@ -319,9 +334,11 @@ playerMoves.push( { x, y } )
     x,
     y
   })
+  startScore();
   if (moved) {
     currentPosition = { x, y }
   }
+  
 } //move
 
 
@@ -329,6 +346,19 @@ playerMoves.push( { x, y } )
 function isEscape(location) {
   if (location.x === 5 && location.y === 9){
     win()
+    clearInterval(scoreLoop);
+    fetch(`${sessionURL}`, {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accepts": "application/json"
+      },
+      body: JSON.stringify({
+              score: score, 
+              player_id: userId
+          })
+  })
+   
      clearInterval(reset);
   }
 }
