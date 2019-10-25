@@ -5,10 +5,13 @@ let userId;
 let isLogin = false;
 let avatar = "0";
 
+
+
 document.addEventListener("DOMContentLoaded", function(){
 
   const avatarSelect = document.querySelector('.avatar')
   const loginDiv = document.querySelector('.login');
+  const formDiv = document.querySelector('.form');
   const playerInfo = document.querySelector('.player-details')
   const playerRecord = document.querySelector('.record-times')
   const topScoreContainer = document.querySelector('#scores')
@@ -55,24 +58,27 @@ document.addEventListener("DOMContentLoaded", function(){
     form.addEventListener('submit',(event)=> {
       
       event.preventDefault();
+    console.log(userInput.value)
       if(userInput.value !== ""){
       
       if (checkPlayer(userInput.value))
         setUserName(userInput.value);
       else
-        createUser(userInput.value);
-        loginDiv.style.display = "none";
+      createUser(userInput.value);
+      loginDiv.style.display = "none";
+      formDiv.style.display = "none";
       }
     });
     isLogin = true;
   }
 
+
   //save userId and insert username in HTML
   function setUserName(user){
-    // console.log(user)
+    userId = user.id;
     playerInfo.insertAdjacentHTML('beforeend',
     `
-    <h3>Player: ${user}</h3>
+    <h3>Player: ${user.name}</h3>
     `)
   }
 
@@ -84,16 +90,14 @@ document.addEventListener("DOMContentLoaded", function(){
       const result =  players.find((player)=>{
                     return player.name === name;
                     })
-                    
-    if(result){ 
+    if(result){
       userId = result.id;
         getPlayerinfo();
         return true;
     }
     else
       return false;
-
-    }) 
+    })
   }
 
   //create user in DB and paste the return new user to setUserName()
@@ -108,21 +112,20 @@ document.addEventListener("DOMContentLoaded", function(){
               name: name
           })
   }).then(resp=>resp.json()) //only if you want to get the data back
-      .then(data => {
-        userId = data.id;
-        setUserName(data.name)
-      })
-      
+      .then(data => setUserName(data))
   }
+
+  // _____________________________________________________________________________________________________________
+
 
 function getAllScore(){
   fetch(sessionURL)
             .then(resp=>resp.json())
             .then(datas=>{ 
-                topScore(datas);
+                topScore(datas)
             })
-}
-  
+          }
+
   function topScore(scores){
     const sortedScores = scores.sort((a,b)=> b.score - a.score);
     //sortedScores.length = 2;
@@ -134,6 +137,8 @@ function getAllScore(){
       <h3>${score.player.name} :: ${score.score}</h3>
     `)
   }
+
+  
 
   captureKey = e => {
     console.log('hehehehehhee')
@@ -154,6 +159,10 @@ function getAllScore(){
         // addToMove(e.code);
         move("left");
         break;
+      case "Backspace":
+        // deleteByKey();
+        move("left");
+        break;
     }
   }
 setTimeout(() => {
@@ -164,3 +173,15 @@ setTimeout(() => {
     document.addEventListener('keydown',captureKey);
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+
