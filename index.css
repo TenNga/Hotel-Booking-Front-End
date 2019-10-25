@@ -14,7 +14,7 @@ canvas {
 
 body {
   background-size: cover;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(24, 20, 23, .1)), url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
+  background-image: linear-gradient(to bottom, rgb(1, 2, 20), rgba(1, 2, 20, 0.93),   rgba(1, 2, 20, 0.0001), rgba(1, 2, 20, 0.0001), rgba(1, 2, 20, 0.000001)), url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
 }
 
 #new-bod {
@@ -41,50 +41,50 @@ body {
 
 .form{
   display: block;
-  background-color: rgb(240, 240, 240, .7);
-  border: 3px solid rgb(145, 100, 2);
+
+  background: #FFFFFF;
+  background: -moz-radial-gradient(center, #FFFFFF 0%, #D6D6D6 50%, #A89D8A 100%);
+  background: -webkit-radial-gradient(center, #FFFFFF 0%, #D6D6D6 50%, #A89D8A 100%);
+  background: radial-gradient(ellipse at center, #FFFFFF 0%, #D6D6D6 50%, #A89D8A 100%);
+ 
+  border: 6px solid rgb(145, 100, 2);
+  border-radius: 9px 9px 9px 9px;
+
   width: 50%;
   height: 25%;
   border-radius: 10px;
   position: absolute;
   text-align: center;
-  box-shadow: 5px 5px rgb(162, 131, 6);
+
+  -webkit-box-shadow: 1px 8px 50px 8px #000000; 
+  box-shadow: 1px 8px 50px 8px #000000;
+
   top: 30%;
   bottom: 90%;
   left: 25%;
   z-index: 3;
 }
-/* .loose{
-  background-color: rgb(240, 240, 240, .7);
-  border: 3px solid rgb(145, 100, 2);
-  width: 50%;
-  height: 20%;
-  border-radius: 10px;
-  position: absolute;
-  text-align: center;
-  box-shadow: 5px 5px rgb(162, 131, 6);
-  top: 30%;
-  left: 25%;
-  z-index: 4;
-} */
+
 
 .form h1{
   display: block;
   font-family: inherit;
   text-align: center;
   letter-spacing: 5px;
-  color: rgb(145, 100, 2);
-  text-shadow: 2px 3px rgb(162, 131, 6, .2);
-  font-size: 100%;
+  color: rgb(94, 65, 4);
+  /* text-shadow: 5px 3px 5px rgba(147,106,45,0.87); */
+  font-size: 30px;
 }
 
 .form input{
   width: 70%;
   height: 30px;
-  background: rgb(205, 205, 142, 0.3);
+  background: rgba(247, 247, 226, 0.3);
   border-radius: 7px;
   font-size: 21px;
-  box-shadow: none;
+  
+  -webkit-box-shadow: 1px 8px 50px -10px #000000; 
+  box-shadow: 1px 8px 50px -10px #000000;
 }
 
 .form:hover{
@@ -103,12 +103,14 @@ body {
   height: 80%;
   margin: auto;
   text-align: center;
-  text-shadow: 1px 1px 2px rgb(182, 182, 182);
-  background-color:rgb(235, 229, 193,0.4);
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.87); 
+  background-color:rgb(235, 229, 193,0.001);
   border-radius: 10px;
   border: 5px solid rgb(113, 76, 12);
-  color: rgb(145, 100, 2);
+  color: rgb(55, 0, 255);
   font-family: inherit;
+  -webkit-box-shadow: 1px 8px 50px 8px #000000; 
+  box-shadow: 1px 8px 50px 8px #000000;
 }
 
 .player-details {
