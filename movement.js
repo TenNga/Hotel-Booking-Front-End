@@ -220,7 +220,7 @@ function bullMove() {
       bullTile.id = "bull";
       i++;
     }
-  }, 1300);
+  }, 300);
 }
 
 function processPlayerMove(targetPosition) {

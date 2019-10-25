@@ -1,12 +1,3 @@
-/* body {
-  display: grid;
-  grid-template-columns: 2.5fr 5fr 2.5fr;
-  width: 99vw;
-  height: 99vh;  
-  background-size: cover;
-  background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
-  
-} */
 
 canvas {
   background-color: black;
@@ -15,6 +6,7 @@ canvas {
 body {
   background-size: cover;
   background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=129402),auto;
 }
 
 #new-bod {
@@ -40,6 +32,7 @@ body {
 .form{
   background-color: rgb(240, 240, 240, .7);
   border: 3px solid rgb(145, 100, 2);
+  
   width: 60%;
   height: 30%;
   border-radius: 10px;
@@ -80,6 +73,7 @@ body {
 }
 
 .form input{
+  text-align: center;
   width: 70%;
   height: 30px;
   background: rgba(112, 174, 240, 0.92);
@@ -99,7 +93,7 @@ body {
   transform: scale(1.5);
 } */
 
-#player-info, #scores{
+#player-info, #scoreAndInstruction{
   width: 80%;
   height: 80%;
   margin: 5px auto;
@@ -110,6 +104,10 @@ body {
   border: 5px solid rgb(113, 76, 12);
   color: rgb(145, 100, 2);
   font-family: 'Fascinate Inline', cursive;
+}
+
+#instruction{
+  margin-top: 20px;
 }
 
 .player-details {
@@ -124,7 +122,7 @@ h3 {
   text-shadow: none;
   letter-spacing: 2px;
   color: white;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+  font-family: 'Righteous', cursive;
 }
 
 .container{
@@ -156,11 +154,6 @@ h3 {
 
 
 .tile {
-  /* border-style: solid;
-  border-width: 1px; */
-  /* background-color: pink;
-  border: 1px solid black; */
- 
   height:5vw;
 }
 
@@ -196,6 +189,15 @@ h3 {
   border-radius: 5px;
 }
 
+
+#robot0 {
+  background-image: url(https://media1.giphy.com/media/PmG7dZrg7T08oxHHcU/100.webp?cid=790b76118133b9ac1866b8003b79395b5805ff8b319d1026&rid=100.webp
+);
+  background-repeat: no-repeat;
+  background-size: 4vw 4vw;
+  background-position: center;
+}
+
 #robot1 {
   background-image: url(https://i.gifer.com/origin/a9/a9cf539bb9b100e936061fd893027ce7_w200.webp);
   background-repeat: no-repeat;
@@ -227,24 +229,21 @@ h3 {
   background-position: center;
 }
 
-
-#robot img{
+#avatar img{
   width: fit-content;
   height: fit-content;
 }
 
 #goal{
-  background-image: url('https://www.pinclipart.com/picdir/big/9-90191_open-door-clipart-open-the-door-png-transparent.png');
+  background-image: url('https://i.gifer.com/origin/ce/cef2ce655eb9740cb8d7c126cf0d5992_w200.webp');
   background-size: 4vw 4vw;
   background-position: center;
   background-repeat: no-repeat;
-  transform: rotateY(180deg);
- 
 }
 
 #key {
-  background-image: url(https://media0.giphy.com/media/U85bUeexI6CX1YRzAl/giphy.webp?cid=790b7611b0549f3c9006f52bb2329b340b8689d75ef9318b&rid=giphy.webp);
-  background-size: 3vw 4vw;
-  background-position: center;
+  background-image: url(https://i.gifer.com/origin/5f/5fb409c816ee7bfbe11588a049d05c79_w200.webp);
+  background-size: 4vw 4vw;
+  background-position: top;
   background-repeat: no-repeat;
 }

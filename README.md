@@ -16,4 +16,5 @@
 * Timer starts when User start playing √
 * Store time when finish  √
 * API to filter top 10 record √
+* Avatar Selection √
 * 

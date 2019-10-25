@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Enter the Labyrinth</title>
   <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -12,10 +14,22 @@
 <!-- <div id="game"> -->
   <!-- <div class="main-container"> -->
     <div id="new-bod">
-      <div id="scores">
+      <div id="scoreAndInstruction">
+        <div id="scores">
         <h3 id="scoreCount"></h3>
         <h2>Leader Board:</h2>
+        </div>
+        <div id="instruction">
+          <h2>Instruction:</h2>
+              <h3>Arrow <i class="arrow alternate circle left outline icon"></i> Go Left</h3>
+              <h3>Arrow <i class="arrow alternate circle right outline icon"></i> Go Right</h3>
+              <h3>Arrow <i class="arrow alternate circle up outline icon"></i> Go Up</h3>
+              <h3>Arrow <i class="arrow alternate circle down outline icon"></i> Go Down</h3>
+        </div>
+
       </div>
+      
+      
       
       <div class="container">
         <div class="login">
@@ -28,7 +42,9 @@
               <img class="avatarIcon" id="4" src="https://i.gifer.com/origin/09/09fd35b35da1d556f7716228a16f5b43_w200.webp">
               <img class="avatarIcon" id="5" src="https://i.gifer.com/origin/f5/f5baef4b6b6677020ab8d091ef78a3bc_w200.webp">
             </div>
-            <form id="userNameForm"><input type="text" id="userName" placeholder="User Name"></form>
+            <form id="userNameForm">
+              <input autocomplete="off" type="text" id="userName" placeholder="User Name">
+            </form>
           </div>
           <!-- <div class="loose"> </div> -->
         </div>

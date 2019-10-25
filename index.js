@@ -3,7 +3,7 @@ const sessionURL = `${baseURL}sessions`
 const playerURL = `${baseURL}players`
 let userId;
 let isLogin = false;
-let avatar;
+let avatar = "0";
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -55,13 +55,14 @@ document.addEventListener("DOMContentLoaded", function(){
     form.addEventListener('submit',(event)=> {
       
       event.preventDefault();
+      if(userInput.value !== ""){
       
       if (checkPlayer(userInput.value))
         setUserName(userInput.value);
       else
         createUser(userInput.value);
-      
-      loginDiv.style.display = "none";
+        loginDiv.style.display = "none";
+      }
     });
     isLogin = true;
   }
