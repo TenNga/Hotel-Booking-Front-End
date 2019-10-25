@@ -1,11 +1,13 @@
 
 canvas {
   height: 270;
+  margin: 0 10vw;
 }
 
 body {
   background-size: cover;
-  background-image: linear-gradient(to bottom, rgb(1, 2, 20), rgba(1, 2, 20, 0.93),   rgba(1, 2, 20, 0.0001), rgba(1, 2, 20, 0.0001), rgba(1, 2, 20, 0.000001)), url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
+  background-image: linear-gradient(to bottom, rgb(1, 2, 20), rgba(1, 2, 20, 0.93),   rgba(1, 2, 20, 0.7), rgba(1, 2, 20, 0.0001), rgba(1, 2, 20, 0.000001), rgba(1, 2, 20, 0.73),  rgba(1, 2, 20, 0.99)), 
+  url("https://images.freecreatives.com/wp-content/uploads/2016/02/Dark-Blue-Maze-Background-For-Free.jpg");
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=129402),auto;
 }
 

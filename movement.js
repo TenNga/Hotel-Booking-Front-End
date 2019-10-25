@@ -231,6 +231,7 @@ function loose(){
 console.dir(formDiv)
   formDiv.innerHTML = `
       <h1>You Loose</h1>
+      <button onclick="reloadP()" >reset</button>
       `
 
   loginDiv.style.display = "block"
@@ -369,11 +370,14 @@ function win(){
   // formDiv.classList.toggle("form:hover")
 console.dir(formDiv)
   formDiv.innerHTML = `
-      <h1>You Win</h1>
-      <button onclick="reset()" >reset</button>
+      <h1 style="font-size: 60px;">You Win</h1>
+      <button onclick="reloadP()" >reset</button>
       `
 
   loginDiv.style.display = "block"
   formDiv.style.display = "block"
 }
 
+function reloadP(){
+  location.reload();
+}

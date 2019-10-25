@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas')
 let c = canvas.getContext('2d')
 
-canvas.width = window.innerWidth
+
 innerWidth = canvas.width 
 innerHeight = canvas.height
 console.log(innerWidth)
