@@ -1,20 +1,40 @@
-# Module Three Project
-## Title: Enter the Labyrinth 
+## Labyrinth Maze
 
-###To-do:
+Challenge between friends with this Labyrinth maze with traps and fire.
 
-* Prompt Welcome √
-* Maze layout (Maze generator) √
-* Add function (keydown, moving player) √
-* Change maze design √
-* Add feature √
-	* Minotaur follow after 3 second √
-	* Hit officer to see path for 2 second √
-* Goal reach (prompt WIn) ...
-* Setup Rails API Server √
-* Front end file setup ...
-* Timer starts when User start playing √
-* Store time when finish  √
-* API to filter top 10 record √
-* Avatar Selection √
-* 
+### `Beautiful Layout`
+
+Custom photoshop walls and animated gif makes this JavaScript really attractive. 
+
+### `Getting Started`
+
+Following Step are instructure to run the project locally
+
+### `Prerequisites`
+
+### back-end 
+- https://github.com/TenNga/module-three-project-backend
+- Ruby on Rails
+
+### front-end
+- JavaScript
+
+### `Installation`
+
+1. Clone this repository
+
+2. Ruby on Rails
+- rails db:create
+- rails db:migrate
+
+3. open index.html
+
+### `Usage`
+
+- Findy the way out is the main purpose of the maze but this maze is different as it includes traps and also keys to guide you to right path
+- Beautiful graphic with animated gif
+- Not just finish the game but try to beat the highest score in record
+
+### 'Demo'
+![](MazeJSDemo.gif)
+

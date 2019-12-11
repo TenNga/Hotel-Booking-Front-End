@@ -167,7 +167,7 @@ function getAllScore(){
   }
 setTimeout(() => {
     bullMove();
-  }, 3000);
+  }, 5000);
 
   if(isLogin){ //allow only after login
     document.addEventListener('keydown',captureKey);
