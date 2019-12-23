@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:3000/"
+const baseURL = "https://warm-mountain-06857.herokuapp.com/"
 const sessionURL = `${baseURL}sessions`
 const playerURL = `${baseURL}players`
 let userId;
@@ -128,7 +128,7 @@ function getAllScore(){
 
   function topScore(scores){
     const sortedScores = scores.sort((a,b)=> b.score - a.score);
-    //sortedScores.length = 2;
+    sortedScores.length = 5;
     sortedScores.forEach((score)=>{insertScore(score)});
   }
 
@@ -167,7 +167,7 @@ function getAllScore(){
   }
 setTimeout(() => {
     bullMove();
-  }, 5000);
+  }, 3000);
 
   if(isLogin){ //allow only after login
     document.addEventListener('keydown',captureKey);

@@ -221,7 +221,7 @@ function bullMove() {
       bullTile.id = "bull";
       i++;
     }
-  }, 3000);
+  }, 500);
 }
 
 function loose(){
