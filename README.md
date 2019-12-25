@@ -35,6 +35,8 @@ Following Step are instructure to run the project locally
 - Beautiful graphic with animated gif
 - Not just finish the game but try to beat the highest score in record
 
-### 'Demo'
+### `Try it out here`
+[>>> Live Demo Here<<<](https://pure-reaches-70099.herokuapp.com/)
+### `Gif Demo`
 ![](MazeJSDemo.gif)
 
